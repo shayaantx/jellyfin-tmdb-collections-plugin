@@ -1,0 +1,31 @@
+name: main
+on:
+  push:
+    branches:
+    - 'main'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: ['5.0.x' ]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v1.7.2
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: copy assets
+      run: |
+        cp ./Jellyfin.Tmdb.Collections.Plugin/bin/Release/net5.0/Jellyfin.Tmdb.Collections.Plugin.dll .
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: false
+        title: "latest"
+        files: |
+          Jellyfin.Tmdb.Collections.Plugin.dll

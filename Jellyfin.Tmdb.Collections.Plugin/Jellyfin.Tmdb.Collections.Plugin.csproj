@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <RootNamespace>Jellyfin.Collections.Plugin</RootNamespace>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Jellyfin.Tmdb.Collections.Plugin</RootNamespace>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Jellyfin.Controller" Version="10.7.*" />
     <PackageReference Include="Jellyfin.Model" Version="10.7.*" />
+    <PackageReference Include="TMDbLib" Version="1.7.3-alpha" />
   </ItemGroup>
 
   <ItemGroup>

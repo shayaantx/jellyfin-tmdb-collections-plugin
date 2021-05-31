@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
-using Jellyfin.Plugin.Template.Configuration;
+using Jellyfin.Tv.Network.Collections.Plugin.Configuration;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Common.Plugins;
 using MediaBrowser.Model.Plugins;
 using MediaBrowser.Model.Serialization;
 
-namespace Jellyfin.Collections.Plugin
+namespace Jellyfin.Tv.Network.Collections.Plugin
 {
     public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
     {
-        public override string Name => "Collections Generator";
+        public override string Name => "TMDB Network Collections Generator";
 
-        public override Guid Id => Guid.Parse("ex5d7894-8eef-4b36-aa6f-5d124e828ce1");
+        public override Guid Id => Guid.Parse("3dbfb2cc-3c87-4e82-acf4-a2e6a77eace7");
 
         public Plugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer) : base(applicationPaths, xmlSerializer)
         {
